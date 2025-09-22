@@ -1,0 +1,41 @@
+from typing import List
+
+
+class Usuario:
+    def __init__(self, id: int, nombre: str, apellido: str, email: str, 
+                 fecha_nacimiento: str, biografia: str, provincia: str, 
+                 localidad: str, gustos_musicales: List[str] = None):
+        self.id = id
+        self.nombre = nombre
+        self.apellido = apellido
+        self.email = email
+        self.fecha_nacimiento = fecha_nacimiento
+        self.biografia = biografia
+        self.provincia = provincia
+        self.localidad = localidad
+        self.gustos_musicales = gustos_musicales if gustos_musicales is not None else []
+        self.ids_amigos = []
+    
+    def agregar_gustos(self, gustos: List[str]):
+        for gusto in gustos:
+            gusto_normalizado = str(gusto).strip().lower()
+            if gusto_normalizado and gusto_normalizado not in self.gustos_musicales:
+                self.gustos_musicales.append(gusto_normalizado)
+    
+    def obtener_ids_amigos(self):
+        return self.ids_amigos
+    
+    def agregar_amigo(self, id_amigo):
+        if id_amigo not in self.ids_amigos:
+            self.ids_amigos.append(id_amigo)
+        else:
+            print("Ya tenés este amigo bobina")
+    
+    def __repr__(self):
+        return f"Usuario(id={self.id}, nombre='{self.nombre}', email='{self.email}')"
+    
+    def __str__(self):
+        return f"{self.nombre} {self.apellido} ({self.email})"
+
+    def coincide_gusto_musical(self, gusto_musical):
+        return (gusto_musical in self.gustos_musicales)
