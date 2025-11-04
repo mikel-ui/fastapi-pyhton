@@ -50,7 +50,7 @@ class FriendRequestsRepository:
                 resultado.append(fr)
         print("enviadas pendientes:")
         print(resultado)
-        return resultado
+        return resultado        
     
     def listar_solicitudes_recibidas_pendientes(self, id_usuario):
         # return [fr if(fr.id_receptor==id_usuario and fr.estado=="pendiente") else None for fr in self._friend_requests.values()]

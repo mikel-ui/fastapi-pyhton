@@ -10,7 +10,6 @@ router = APIRouter()
 async def listar_friend_requests():
     return _service.listar_friend_requests()
 
-
 # ●  POST /solicitudes-de-amistad permite que un usuario cree una solicitud de amistad hacia otro usuario. 
 @router.post("")
 async def crear_friend_request(request:Request):

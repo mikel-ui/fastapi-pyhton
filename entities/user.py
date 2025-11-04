@@ -15,6 +15,10 @@ class Usuario:
         self.localidad = localidad
         self.gustos_musicales = gustos_musicales if gustos_musicales is not None else []
         self.ids_amigos = []
+        self.ids_posts = []
+    
+    def crear_post(self, post):        
+        self.ids_posts.append(post)
     
     def agregar_gustos(self, gustos: List[str]):
         for gusto in gustos:
@@ -39,3 +43,6 @@ class Usuario:
 
     def coincide_gusto_musical(self, gusto_musical):
         return (gusto_musical in self.gustos_musicales)
+    
+    def cantidad_amigos(self):
+        return len(self.ids_amigos)
